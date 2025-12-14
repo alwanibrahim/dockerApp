@@ -1,0 +1,19 @@
+services:
+  whatsapp:
+    image: aldinokemal2104/go-whatsapp-web-multidevice
+    container_name: 1gowaApp 
+    restart: always
+    ports:
+      - "3002:3000"
+    volumes:
+      - 1gowaApp:/app/storages
+    command:
+      - rest
+      - --basic-auth=admin:admin
+      - --port=3000
+      - --debug=true
+      - --os=Chrome
+      - --account-validation=false
+
+volumes:
+  1gowaApp:

@@ -1,0 +1,49 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: 1mysqlApp
+    restart: always
+
+    environment:
+      TZ: Asia/Jakarta
+      MYSQL_ROOT_PASSWORD: alwanadmin
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: alwna
+      MYSQL_PASSWORD: alwanadmin
+
+    command: --default-time-zone=+07:00
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - 1mysqlApp:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+
+    networks:
+      - mysql_net
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: 1mysqlApp_phpmyadmin
+    restart: always
+
+    environment:
+      TZ: Asia/Jakarta
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+
+    ports:
+      - "8080:80"
+
+    depends_on:
+      - mysql
+
+    networks:
+      - mysql_net
+
+networks:
+  mysql_net:
+    driver: bridge
+volumes: 
+  1mysqlApp:
