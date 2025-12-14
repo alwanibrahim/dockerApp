@@ -1,0 +1,27 @@
+name: 2n8nApp
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: 2n8nApp
+    restart: unless-stopped
+
+    ports:
+      - "${N8N_PORT}:5678"
+
+    env_file:
+      - .env
+
+    volumes:
+      - 2n8nApp:/home/node/.n8n
+
+    networks:
+      - 2n8nApp_net
+
+networks:
+  2n8nApp_net:
+    name: 2n8nApp_net
+    driver: bridge
+
+volumes:
+  2n8nApp:
