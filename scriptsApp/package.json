@@ -3,10 +3,20 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "cf": "bun ./src/cloudFlareApp.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "bin": {
+    "cf": "./src/cloudFlareApp.ts"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.1.0",
+    "commander": "^14.0.2"
   }
 }
