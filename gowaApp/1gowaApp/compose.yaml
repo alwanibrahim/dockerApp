@@ -1,7 +1,7 @@
 services:
   whatsapp:
     image: aldinokemal2104/go-whatsapp-web-multidevice
-    container_name: 1gowaApp 
+    container_name: 1gowaApp
     restart: always
     ports:
       - "3002:3000"
@@ -14,6 +14,7 @@ services:
       - --debug=true
       - --os=Chrome
       - --account-validation=false
+      - --webhook="https://n8n.personal.vaultsy.online/webhook-test/3715ff08-74a9-4402-8b1a-f8c7a9239061"
 
 volumes:
   1gowaApp:
