@@ -1,0 +1,37 @@
+services:
+  waha:
+    image: devlikeapro/waha
+    container_name: 1wahaApp
+    restart: unless-stopped
+
+    ports:
+      - "3010:3000"
+
+    environment:
+      TZ: Asia/Jakarta
+
+      # ===== CORE =====
+      WAHA_LOG_LEVEL: info
+      WHATSAPP_DEFAULT_ENGINE: WEBJS
+
+      # ===== API SECURITY (INI KRUSIAL) =====
+      WAHA_API_KEY: "2e1005a40ef74edda01ffb1ade877fd3"
+      WAHA_API_KEY_PLAIN: "2e1005a40ef74edda01ffb1ade877fd3"
+
+      # ===== DASHBOARD AUTH =====
+      WAHA_DASHBOARD_USERNAME: admin
+      WAHA_DASHBOARD_PASSWORD: "2e1005a40ef74edda01ffb1ade877fd3"
+
+      # ===== DASHBOARD → BACKEND CONFIG (INI YANG KURANG DI KAMU) =====
+      WAHA_DASHBOARD_API_URL: http://localhost:3000
+      WAHA_DASHBOARD_API_KEY: "2e1005a40ef74edda01ffb1ade877fd3"
+
+      # ===== SWAGGER =====
+      WHATSAPP_SWAGGER_USERNAME: admin
+      WHATSAPP_SWAGGER_PASSWORD: "2e1005a40ef74edda01ffb1ade877fd3"
+
+    volumes:
+      - waha_sessions:/app/sessions
+
+volumes:
+  waha_sessions:
