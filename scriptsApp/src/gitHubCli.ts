@@ -1,10 +1,4 @@
 #!/usr/bin/env bun
-import { $ } from "bun"
-
-/* =====================================
-   UTILS
-===================================== */
-
 
 async function run(cmd: string[], input?: string) {
   const proc = Bun.spawn(cmd, {

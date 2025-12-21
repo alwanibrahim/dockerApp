@@ -14,7 +14,7 @@ services:
       - --debug=true
       - --os=Chrome
       - --account-validation=false
-      - --webhook="https://n8n.personal.vaultsy.online/webhook-test/3715ff08-74a9-4402-8b1a-f8c7a9239061"
+      - --webhook="https://n8n.personal.vaultsy.online/webhook-test/1gowaApp"
 
 volumes:
   1gowaApp:
